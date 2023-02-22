@@ -66,22 +66,22 @@ def start(bot, update):
         chat_log = None
         cache = None
         qcache = None
-        botname = 'Harshit Ethic'
-        username = 'harshitethic_bot'
-        update.message.reply_text('Hi')
+        botname = 'chatGPT'
+        username = 'chatgpttaherbot'
+        update.message.reply_text('مرحبا')
         return 
     else:
-        update.message.reply_text('I am currently talking to someone else. Can you please wait ' + left + ' seconds?')
+        update.message.reply_text('أتحدث حاليا إلى شخص آخر. هل يمكنك الانتظار من فضلك؟ ' + left + ' ثواني?')
         return
 
 
 def help(bot, update):
-    """Send a message when the command /help is issued."""
-    update.message.reply_text('[/reset] resets the conversation,\n [/retry] retries the last output,\n [/username name] sets your name to the bot, default is "Human",\n [/botname name] sets the bots character name, default is "AI"')
+    """ارسل رسالة عند استخدام امر /help  """
+    update.message.reply_text('[/reset] إعادة تعيين المحادثة,\n [/retry] أعد النظر في الناتج الأخير,\n [/username name] تعيين اسمك على الروبوت، الافتراضي هو "إنسان",\n [/botname name] تعيين اسم حرف برامج الروبوت، الافتراضي هو "AI"')
 
 
 def reset(bot, update):
-    """Send a message when the command /reset is issued."""
+    """ارسل رسالة عند استخدام  /reset """
     global chat_log
     global cache
     global qcache
@@ -93,25 +93,25 @@ def reset(bot, update):
         chat_log = None
         cache = None
         qcache = None
-        botname = 'Harshit Ethic'
-        username = 'harshitethic_bot'
-        update.message.reply_text('Bot has been reset, send a message!')
+        botname = 'chatGPT'
+        username = 'chatgpttaherbot'
+        update.message.reply_text('تمت إعادة تعيين البوت، أرسل رسالة!')
         return
     if tim == 1:
         chat_log = None
         cache = None
         qcache = None
-        botname = 'Harshit Ethic'
-        username = 'harshitethic_bot'
-        update.message.reply_text('Bot has been reset, send a message!')
+        botname = 'chatGPT'
+        username = 'chatgpttaherbot'
+        update.message.reply_text('تمت إعادة تعيين البوت، أرسل رسالة!')
         return 
     else:
-        update.message.reply_text('I am currently talking to someone else. Can you please wait ' + left + ' seconds?')
+        update.message.reply_text('أتحدث حاليا إلى شخص آخر. هل يمكنك الانتظار من فضلك؟ ' + left + ' ثواني?')
         return
 
 
 def retry(bot, update):
-    """Send a message when the command /retry is issued."""
+    """ارسل امر /retry """
     global chat_log
     global cache
     global qcache
@@ -128,16 +128,16 @@ def retry(bot, update):
         chat_log = None
         cache = None
         qcache = None
-        botname = 'Harshit Ethic'
-        username = 'harshitethic_bot'
-        update.message.reply_text('Send a message!')
+        botname = 'chatGPT'
+        username = 'chatgpttaherbot'
+        update.message.reply_text('أرسل رسالة!')
         return 
     else:
-        update.message.reply_text('I am currently talking to someone else. Can you please wait ' + left + ' seconds?')
+        update.message.reply_text('أتحدث حاليا إلى شخص آخر. هل يمكنك الانتظار من فضلك؟ ' + left + ' ثواني?')
         return
 
 def runn(bot, update):
-    """Send a message when a message is received."""
+    """أرسل رسالة عند استلام رسالة."""
     new = False
     global botname
     global username
@@ -146,7 +146,7 @@ def runn(bot, update):
             string = update.message.text
             charout = string.split("/botname ",1)[1]
             botname = charout
-            response = "The bot character name set to: " + botname
+            response = "تم تعيين اسم حرف الروبوت على: " + botname
             update.message.reply_text(response)
         except Exception as e:
             update.message.reply_text(e)
@@ -156,7 +156,7 @@ def runn(bot, update):
             string = update.message.text
             userout = string.split("/username ",1)[1]
             username = userout
-            response = "Your character name set to: " + username
+            response = "تم تعيين اسم شخصيتك على: " + username
             update.message.reply_text(response)
         except Exception as e:
             update.message.reply_text(e)
@@ -189,13 +189,13 @@ def wait(bot, update, botname, username, new):
                 cache = None
                 qcache = None
                 user = ""
-                username = 'harshitethic_bot'
-                botname = 'Harshit Ethic'
-                update.message.reply_text('Timer has run down, bot has been reset to defaults.')
+                username = 'chatgpttaherbot'
+                botname = 'chatGPT'
+                update.message.reply_text('تم تشغيل المؤقت، وتمت إعادة تعيين الروبوت إلى الإعدادات الافتراضية.')
                 running = False
     else:
         left = str(tim)
-        update.message.reply_text('I am currently talking to someone else. Can you please wait ' + left + ' seconds?')
+        update.message.reply_text('أتحدث حاليا إلى شخص آخر. هل يمكنك الانتظار من فضلك؟ ' + left + ' ثواني?')
 
 
 ################
@@ -204,7 +204,7 @@ def wait(bot, update, botname, username, new):
 def limit(text, max):
     if (len(text) >= max):
         inv = max * 10
-        print("Reducing length of chat history... This can be a bit buggy.")
+        print("تقليل مدة سجل الدردشة... يمكن أن يكون هذا عربات التي تجرها الدواب بعض الشيء.")
         nl = text[inv:]
         text = re.search(r'(?<=\n)[\s\S]*', nl).group(0)
         return text
@@ -214,7 +214,7 @@ def limit(text, max):
 
 def ask(username, botname, question, chat_log=None):
     if chat_log is None:
-        chat_log = 'The following is a chat between two users:\n\n'
+        chat_log = 'فيما يلي محادثة بين مستخدمين اثنين:\n\n'
     now = datetime.now()
     ampm = now.strftime("%I:%M %p")
     t = '[' + ampm + '] '
@@ -229,7 +229,7 @@ def ask(username, botname, question, chat_log=None):
 
 def append_interaction_to_chat_log(username, botname, question, answer, chat_log=None):
     if chat_log is None:
-        chat_log = 'The following is a chat between two users:\n\n'
+        chat_log = 'فيما يلي محادثة بين مستخدمين اثنين:\n\n'
     chat_log = limit(chat_log, max)
     now = datetime.now()
     ampm = now.strftime("%I:%M %p")
@@ -247,10 +247,10 @@ def interact(bot, update, botname, username, new):
     if new != True:
         vs = analyzer.polarity_scores(text)
         if debug == True:
-            print("Sentiment of input:\n")
+            print("معنويات المدخلات:\n")
             print(vs)
         if vs['neg'] > 1:
-            update.message.reply_text('Can we talk something else?')
+            update.message.reply_text('هل يمكننا التحدث عن شيء آخر؟')
             return
     if new == True:
         if debug == True:
@@ -276,10 +276,10 @@ def interact(bot, update, botname, username, new):
         out = str(decoded)
         vs = analyzer.polarity_scores(out)
         if debug == True:
-            print("Sentiment of output:\n")
+            print("معنويات الناتج:\n")
             print(vs)
         if vs['neg'] > 1:
-            update.message.reply_text('I do not think I could provide you a good answer for this. Use /retry to get positive output.')
+            update.message.reply_text('لا أعتقد أنني أستطيع أن أقدم لك إجابة جيدة على هذا. استخدم /retry للحصول على مخرجات إيجابية.')
             return
         update.message.reply_text(out)
         chat_log = append_interaction_to_chat_log(username, botname, question, answer, chat_log)
